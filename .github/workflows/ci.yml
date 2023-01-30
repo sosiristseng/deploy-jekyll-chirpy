@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 env:
-  RUBY_VER: "3.0"
+  RUBY_VER: 3
 
 jobs:
   ci:
