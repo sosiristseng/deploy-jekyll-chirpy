@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # for posts's lastmod
+          fetch-depth: 0  # for lastmod
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -30,6 +30,7 @@ jobs:
         # Outputs to the './_site' directory by default
         run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
       - name: Upload artifact
+        if: ${{ github.ref == 'refs/heads/main' }}
         uses: actions/upload-pages-artifact@v1
 
   # Deployment to GitHub pages
